@@ -20,7 +20,8 @@ const Guest = (props) => {
             <button onClick={props.handleToggleEditing}>
                 {props.isEditing ? "save" : "edit"}
             </button>
-            <button>remove</button>
+            {/*Guest uses remove handler*/}
+            <button onClick={props.handleRemoveGuest}>remove</button>
         </li>
     );
 };
