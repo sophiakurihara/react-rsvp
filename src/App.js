@@ -5,6 +5,7 @@ import GuestList from "./GuestList";
 class App extends Component {
 
     state = {
+        isFiltered: false,
         guests: [
             {
                 name: 'Treasure',
@@ -60,6 +61,10 @@ class App extends Component {
         })
     };
 
+    toggleFilter = () => {
+        this.setState({ isFiltered: !this.state.isFiltered })
+    };
+
     getTotalInvited = () => this.state.guests.length;
     getAttendingGuests = () => {
        let totalAttending = 0;
@@ -75,7 +80,7 @@ class App extends Component {
             <div className="App">
                 <header>
                     <h1>RSVP</h1>
-                    <p>A Treehouse App</p>
+                    <p>Built with React</p>
                     <form>
                         <input type="text" value="Safia" placeholder="Invite Someone" />
                             <button type="submit" name="submit" value="submit">Submit</button>
@@ -85,7 +90,10 @@ class App extends Component {
                     <div>
                         <h2>Invitees</h2>
                         <label>
-                            <input type="checkbox" /> Hide those who haven't responded
+                            <input
+                                type="checkbox"
+                                onChange={this.toggleFilter}
+                                checked={this.state.isFiltered}/> Hide those who haven't responded
                         </label>
                     </div>
                     <table className="counter">
@@ -109,6 +117,7 @@ class App extends Component {
                         toggleConfirmationAt={this.toggleConfirmationAt}
                         toggleEditingAt={this.toggleEditingAt}
                         setNameAt={this.setNameAt}
+                        isFiltered={this.state.isFiltered}
                     />
                 </div>
             </div>
