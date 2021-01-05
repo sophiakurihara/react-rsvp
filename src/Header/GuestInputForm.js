@@ -18,4 +18,10 @@ const GuestInputForm = props => {
     );
 };
 
+GuestInputForm.propTypes = {
+    newGuestSubmitHandler: PropTypes.func.isRequired,
+    pendingGuest: PropTypes.string.isRequired,
+    handleNameInput: PropTypes.func.isRequired
+};
+
 export default GuestInputForm;

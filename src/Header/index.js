@@ -17,4 +17,9 @@ const Header = props => {
     );
 };
 
+Header.propTypes = {
+    newGuestSubmitHandler: PropTypes.func.isRequired,
+    pendingGuest: PropTypes.string.isRequired,
+    handleNameInput: PropTypes.func.isRequired
+};
 export default Header;
